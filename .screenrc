@@ -1,0 +1,24 @@
+# コントロールをCtrl-Tに変更
+escape ^Tt
+
+# 背景をクリア
+defbce on
+term xterm-256color
+
+# .bash_profileを反映させる
+shell $SHELL
+termcapinfo xterm* 'Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+#自動でタッチ
+autodetach on
+
+# ステータスバー
+#hardstatus alwayslastline '%02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
+hardstatus alwayslastline '%{= .b}%H%{-} %L=%-w%45L>%{=u b.}%n %t%{-}%+w %-17<%=%Y/%m/%d %02c:%s'
+caption always '%?%F%{= bw}%:%{= wk}%?%2n%f%07=%t%='
+sorendition '+r .b'
+
+# ログファイル保存先
+logfile "$HOME/.screen/screen-%H.%Y%m%d-%0c:%s.%n.%t.log"
+deflog on
